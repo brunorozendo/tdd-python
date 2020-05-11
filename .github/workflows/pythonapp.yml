@@ -20,12 +20,6 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.8
-    - name: Install geckodriver
-      run: |
-        apt install firefox
-        wget https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux64.tar.gz
-        tar -xf geckodriver-v0.26.0-linux64.tar.gz -C /home/runner/work/tdd-python/tdd-python
-        chmod a+x /home/runner/work/tdd-python/tdd-python/geckodriver
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip

@@ -1,10 +1,12 @@
 from selenium import webdriver
 import unittest
+import os
+
 
 class ProjectRunning(unittest.TestCase):
 
     def setUp(self):
-        self.browser = webdriver.Firefox(executable_path='/home/runner/work/tdd-python/tdd-python/geckodriver')
+        self.browser = webdriver.Firefox(executable_path=os.environ['GECKOWEBDRIVER'])
 
     def tearDown(self):
         self.browser.quit()
