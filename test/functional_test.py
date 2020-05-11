@@ -8,6 +8,7 @@ class ProjectRunning(unittest.TestCase):
 
     def tearDown(self):
         # self.browser.quit()
+        pass
 
     def test_is_server_running(self):
         self.browser.get('http://127.0.0.1:8000')
