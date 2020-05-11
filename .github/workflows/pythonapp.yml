@@ -24,7 +24,7 @@ jobs:
       run: |
         wget https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux64.tar.gz
         mkdir ~/.bin
-        tar -xf geckodriver-v0.26.0-linux64.tar.gz -C ~/.bin
+        tar -xf geckodriver-v0.26.0-linux64.tar.gz -C ~/
         chmod a+x ~/.bin/geckodriver
     - name: Install dependencies
       run: |

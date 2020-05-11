@@ -4,7 +4,7 @@ import unittest
 class ProjectRunning(unittest.TestCase):
 
     def setUp(self):
-        self.browser = webdriver.Firefox(executable_path='~/.bin/geckodriver')
+        self.browser = webdriver.Firefox(executable_path='~/geckodriver')
 
     def tearDown(self):
         self.browser.quit()
