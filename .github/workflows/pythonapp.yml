@@ -23,7 +23,10 @@ jobs:
     - name: Install geckodriver
       run: |
         wget https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux64.tar.gz
-        tar -xf geckodriver-v0.26.0-linux64.tar.gz -C /usr/local/bin/
+        mkdir .bin
+        tar -xf geckodriver-v0.26.0-linux64.tar.gz -C .bin
+        chmod a+x .bin/geckodriver
+        EXPORT PATH=$PATH:.bin
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
