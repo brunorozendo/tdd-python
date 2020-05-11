@@ -7,8 +7,7 @@ class ProjectRunning(unittest.TestCase):
         self.browser = webdriver.Firefox(executable_path='/home/runner/work/tdd-python/tdd-python/geckodriver')
 
     def tearDown(self):
-        # self.browser.quit()
-        pass
+        self.browser.quit()
 
     def test_is_server_running(self):
         self.browser.get('http://127.0.0.1:8000')
