@@ -24,9 +24,9 @@ jobs:
       run: |
         pwd
         ls
+
         wget https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux64.tar.gz
-        mkdir ~/.bin
-        tar -xf geckodriver-v0.26.0-linux64.tar.gz -C ~/
+        tar -xf geckodriver-v0.26.0-linux64.tar.gz -C /home/runner/work/tdd-python/tdd-python
         chmod a+x ~/geckodriver
     - name: Install dependencies
       run: |
