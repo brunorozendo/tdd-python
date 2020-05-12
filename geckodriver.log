@@ -132,3 +132,12 @@ JavaScript error: resource://services-settings/Database.jsm, line 29: Error: Ind
 1589222518564	Marionette	INFO	Listening on port 35429
 1589222518670	Marionette	WARN	TLS certificate errors will be ignored for this session
 1589222518932	Marionette	INFO	Stopped listening on port 35429
+1589241212918	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileWvSF5i"
+1589241213197	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1589241213402	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1589241213403	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1589241213403	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1589241213403	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1589241215026	Marionette	INFO	Listening on port 39215
+1589241215127	Marionette	WARN	TLS certificate errors will be ignored for this session
+1589241215253	Marionette	INFO	Stopped listening on port 39215
