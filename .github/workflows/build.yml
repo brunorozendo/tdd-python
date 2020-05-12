@@ -40,6 +40,5 @@ jobs:
         kill $(ps aux | grep 'runserver' | awk '{print $2}')
     - name: Build the Docker image
       run: |
-        pwd
-        ls -la
+        python setup.py bdist_wheel
         docker build . --file Dockerfile --tag ttd-python:$(date +%s)
