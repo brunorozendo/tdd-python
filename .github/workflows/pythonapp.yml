@@ -32,5 +32,5 @@ jobs:
     - name: Test with pytest
       run: |
         python manage.py runserver > output.log 2>&1 < /dev/null &
-        pytest
+        pytest --cov --cov-report xml  test/
         kill $(ps aux | grep 'runserver' | awk '{print $2}')
