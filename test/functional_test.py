@@ -6,9 +6,9 @@ import os
 class ProjectRunning(unittest.TestCase):
 
     def setUp(self):
-        # gecko = os.environ['GECKOWEBDRIVER']
-        # self.browser = webdriver.Firefox(executable_path=f"{gecko}/geckodriver")
-        self.browser = webdriver.Firefox()
+        options = webdriver.FirefoxOptions()
+        options.headless = True
+        self.browser = webdriver.Firefox(options=options)
 
     def tearDown(self):
         self.browser.quit()
