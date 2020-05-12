@@ -194,10 +194,12 @@ setup(
          'integration': integration_test_requirements,
     },
 
+
+    include_package_data = True,
     # If there are data files included in your packages that need to be
     # installed, specify them here.
     # package_data={  # Optional
-    #    'sample': ['package_data.dat'],
+    #    'sample': ['manage.py'],
     # },
 
     # Although 'package_data' is the preferred approach, in some case you may
