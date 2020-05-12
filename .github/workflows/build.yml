@@ -1,7 +1,7 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Python application
+name: Python Django application
 
 on:
   push:
@@ -38,3 +38,5 @@ jobs:
         python manage.py runserver > output.log 2>&1 < /dev/null &
         pytest --cov --cov-report xml  test/
         kill $(ps aux | grep 'runserver' | awk '{print $2}')
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag ttd-python:$(date +%s)
