@@ -39,4 +39,7 @@ jobs:
         pytest --cov --cov-report xml  test/
         kill $(ps aux | grep 'runserver' | awk '{print $2}')
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ttd-python:$(date +%s)
+      run: |
+      pwd
+      ls -la
+      docker build . --file Dockerfile --tag ttd-python:$(date +%s)
