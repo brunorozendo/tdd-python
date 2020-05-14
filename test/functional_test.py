@@ -1,6 +1,6 @@
-from selenium import webdriver
 import unittest
-import os
+
+from selenium import webdriver
 
 
 class ProjectRunning(unittest.TestCase):
@@ -19,4 +19,4 @@ class ProjectRunning(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.Main()
+    unittest.main()

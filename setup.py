@@ -5,12 +5,12 @@ https://packaging.python.org/guides/distributing-packages-using-setuptools/
 https://github.com/pypa/sampleproject
 """
 
-# Always prefer setuptools over distutils
-from setuptools import setup, find_packages
-from os import path
 import io
 import re
+from os import path
 
+# Always prefer setuptools over distutils
+from setuptools import setup, find_packages
 
 dev_requirements = [
     'pytest>=5.4.2',
@@ -38,7 +38,6 @@ run_requirements = [
     'wheel>=0.34.2'
 ]
 
-
 here = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
@@ -53,7 +52,6 @@ with io.open('./learning_ttd_python/__init__.py', encoding='utf8') as version_f:
         version = version_match.group(1)
     else:
         raise RuntimeError("Unable to find version string.")
-
 
 # Arguments marked as "Required" below must be included for upload to PyPI.
 # Fields marked as "Optional" may be commented out.
@@ -188,14 +186,13 @@ setup(
     #
     # Similar to `install_requires` above, these must be valid existing
     # projects.
-    extras_require={ # Optional
-         'dev': dev_requirements,
-         'unit': unit_test_requirements,
-         'integration': integration_test_requirements,
+    extras_require={
+        'dev': dev_requirements,
+        'unit': unit_test_requirements,
+        'integration': integration_test_requirements,
     },
 
-
-    include_package_data = True,
+    include_package_data=True,
     # If there are data files included in your packages that need to be
     # installed, specify them here.
     # package_data={  # Optional
