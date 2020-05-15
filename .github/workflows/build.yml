@@ -43,6 +43,8 @@ jobs:
         version=$(./get_version.py)
         docker build . --file Dockerfile --tag ${{ secrets.HEROKU_APP_NAME }}:$version
     - name: Push the Docker image
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: |
         version=$(./get_version.py)
         docker login --username=${{ secrets.HEROKU_USERNAME }} --password=${{ secrets.HEROKU_API_KEY }} registry.heroku.com
