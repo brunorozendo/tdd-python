@@ -6,6 +6,10 @@ WORKDIR /app
 COPY ./manage.py /app
 COPY ./dist/*.whl /app
 
+ENV PORTA $PORT
+
+EXPOSE $PORTA
+
 RUN pip3 install /app/*.whl
 
-CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["sh", "-c", "python manage.py runserver 0.0.0.0:$PORTA"]
