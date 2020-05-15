@@ -26,11 +26,9 @@ jobs:
         pip install -e .[dev,unit,integration]
     - name: Lint with flake8
       run: |
-        # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
     - name: Check quality with bandit
       run: |
-        # stop the build if there are Python syntax errors or undefined names
         bandit -r . -x ./test,./venv
     - name: Test with pytest
       run: |
@@ -42,7 +40,7 @@ jobs:
         python setup.py bdist_wheel
         version=$(./get_version.py)
         docker build . --file Dockerfile --tag ${{ secrets.HEROKU_APP_NAME }}:$version
-    - name: Push the Docker image
+    - name: Push the Docker image to heroku and deploy
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: |

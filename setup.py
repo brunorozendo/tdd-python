@@ -26,7 +26,8 @@ integration_test_requirements = dev_requirements
 
 run_requirements = [
     'django>=3.0.6',
-    'wheel>=0.34.2'
+    'wheel>=0.34.2',
+    'gunicorn'
 ]
 
 here = path.abspath(path.dirname(__file__))
