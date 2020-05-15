@@ -14,7 +14,7 @@ class ProjectRunning(unittest.TestCase):
         self.browser.quit()
 
     def test_is_server_running(self):
-        self.browser.get('http://127.0.0.1:8000')
+        self.browser.get('http://127.0.0.1:8000/admin/login/')
         self.assertIn('Django', self.browser.title)
 
 

@@ -5,12 +5,12 @@ https://packaging.python.org/guides/distributing-packages-using-setuptools/
 https://github.com/pypa/sampleproject
 """
 
-import io
-import re
 from os import path
 
 # Always prefer setuptools over distutils
 from setuptools import setup, find_packages
+
+from get_version import get_version
 
 dev_requirements = [
     'pytest>=5.4.2',
@@ -19,20 +19,11 @@ dev_requirements = [
     'bandit>=1.6.2',
     'selenium>=3.141.0'
 ]
-unit_test_requirements = [
-    'pytest>=5.4.2',
-    'pytest-cov>=2.8.1',
-    'flake8>=3.8.0',
-    'bandit>=1.6.2',
-    'selenium>=3.141.0'
-]
-integration_test_requirements = [
-    'pytest>=5.4.2',
-    'pytest-cov>=2.8.1',
-    'flake8>=3.8.0',
-    'bandit>=1.6.2',
-    'selenium>=3.141.0'
-]
+
+unit_test_requirements = dev_requirements
+
+integration_test_requirements = dev_requirements
+
 run_requirements = [
     'django>=3.0.6',
     'wheel>=0.34.2'
@@ -45,13 +36,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 # Get the version
-with io.open('./learning_ttd_python/__init__.py', encoding='utf8') as version_f:
-    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
-                              version_f.read(), re.M)
-    if version_match:
-        version = version_match.group(1)
-    else:
-        raise RuntimeError("Unable to find version string.")
+version = get_version()
 
 # Arguments marked as "Required" below must be included for upload to PyPI.
 # Fields marked as "Optional" may be commented out.

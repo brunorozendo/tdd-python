@@ -24,7 +24,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -e .[dev,unit,integration]
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
@@ -41,4 +40,13 @@ jobs:
     - name: Build the Docker image
       run: |
         python setup.py bdist_wheel
-        docker build . --file Dockerfile --tag ttd-python:$(date +%s)
+        version=$(./get_version.py)
+        docker build . --file Dockerfile --tag ${{ secrets.HEROKU_APP_NAME }}:$version
+    - name: Push the Docker image
+      run: |
+        version=$(./get_version.py)
+        docker login --username=${{ secrets.HEROKU_USERNAME }} --password=${{ secrets.HEROKU_API_KEY }} registry.heroku.com
+        docker tag ${{ secrets.HEROKU_APP_NAME }}:$version registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web
+        docker push registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web
+        heroku container:login
+        heroku container:release -a ${{ secrets.HEROKU_APP_NAME }} web
